@@ -194,9 +194,8 @@ def main():
         marker_data[resource_id] = m_tracker_marker
 
     # Writing marker file
-    write_marker_data(marker_data)
+    write_marker_data(marker_file_name, marker_data)
 
-    print(marker_file_name, marker_data)
     print(f"Marker created: {resource_id}")
     print(m_tracker_marker_json)
 
