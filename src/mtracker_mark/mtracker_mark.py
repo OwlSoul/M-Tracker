@@ -4,6 +4,7 @@
     M-Tracker mark, will leave an M-Tracker mark in the folder.
     Interactive tool.
 '''
+
 import uuid
 import sys
 import json
@@ -90,6 +91,12 @@ def get_current_marker_data(marker_file_name):
             pass
     return marker_data
 
+def write_marker_data(marker_file_name, marker_data):
+    ''' Writes marker data to a file'''
+    with open(marker_file_name, 'w') as f:
+        f.write(json.dumps(marker_data, indent=4))
+        f.close()
+
 def set_resource_id(resource_name, resource_code):
     ''' Set resource ID '''
     proposed_resource_id = "".join([c for c in resource_name if c.isalpha() or c.isdigit() or c == ' ']).rstrip()
@@ -138,7 +145,7 @@ def main():
     print(f"M-TRACKER MARK SYSTEM: Version v{VERSION}")
     # Getting current directory (will be added to tracker file)
     #current_path = os.path.dirname(os.path.realpath(__file__))
-    current_path = os.popen('pwd').readline()
+    current_path = os.popen('pwd').readline().strip()
     print(current_path)
 
     # Get current marker filename
@@ -187,11 +194,9 @@ def main():
         marker_data[resource_id] = m_tracker_marker
 
     # Writing marker file
-    with open(marker_file_name, 'w') as f:
-        f.write(json.dumps(marker_data, indent=4))
-        f.close()
+    write_marker_data(marker_data)
 
-    print()
+    print(marker_file_name, marker_data)
     print(f"Marker created: {resource_id}")
     print(m_tracker_marker_json)
 
