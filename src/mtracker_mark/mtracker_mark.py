@@ -137,7 +137,9 @@ def main():
 
     print(f"M-TRACKER MARK SYSTEM: Version v{VERSION}")
     # Getting current directory (will be added to tracker file)
-    current_path = os.path.dirname(os.path.realpath(__file__))
+    #current_path = os.path.dirname(os.path.realpath(__file__))
+    current_path = os.popen('pwd').readline()
+    print(current_path)
 
     # Get current marker filename
     marker_file_name = current_path + '/' + MARKER_FILENAME
