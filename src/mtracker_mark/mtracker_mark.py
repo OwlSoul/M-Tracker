@@ -23,11 +23,13 @@ COLLISION_NOT_CONFIRMED = 4
 MARKER_FILENAME = ".mtracker.mtr"
 
 COMMON_RESOURCE_TYPES = {
-    "1": "Video, Movies, TV Series",
-    "2": "Music, Podcasts, Audio",
-    "3": "Video game",
-    "4": "Software",
-    "5": "Books, Visual Novels, Comics, Manga",
+    "1": "TV Series",
+    "2": "Movies",
+    "3": "Music",
+    "4": "Video game",
+    "5": "Software",
+    "6": "Books",
+    "7": "Visual Novels, Comics, Manga",
     "0": "Custom (special case)"
 }
 
