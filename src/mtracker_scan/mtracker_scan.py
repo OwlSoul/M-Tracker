@@ -63,7 +63,7 @@ def process_marker(marker_path, marker_filename, device_marker):
         if 'path_history' in marker_data_entry:
             add_path = True
             try:
-                resource_path = marker_data[resource_id]['path_history'][-1].split(',')[2]
+                resource_path = marker_data[resource_id]['path_history'][-1].split(',')[1]
                 if resource_path == marker_path:
                     add_path = False
             except IndexError:
