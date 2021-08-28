@@ -29,7 +29,9 @@ COMMON_RESOURCE_TYPES = {
     "4": "Video game",
     "5": "Software",
     "6": "Books",
-    "7": "Visual Novels, Comics, Manga",
+    "7": "Visual Novels",
+    "8": "Comics",
+    "9": "Manga",
     "0": "Custom (special case)"
 }
 
