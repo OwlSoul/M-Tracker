@@ -62,13 +62,12 @@ def process_marker(marker_path, marker_filename, device_marker):
                                                                                'RESOURCE_DESCRIPTION_MISSING')))
         if 'path_history' in marker_data_entry:
             add_path = True
-            for entry in marker_data_entry['path_history']:
-                try:
-                    path = entry.split(',')[1]
-                    if path == marker_path:
-                        add_path = False
-                except IndexError:
-                    return
+            try:
+                resource_path = marker_data[resource_id]['path_history'][-1].split(',')[2]
+                if resource_path == marker_path:
+                    add_path = False
+            except IndexError:
+                return
             if add_path:
                 marker_data[resource_id]['path_history'].append(datetime.now()
                                                                 .strftime("%Y-%m-%d %H:%M:%S") + \

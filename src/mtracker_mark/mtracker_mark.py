@@ -124,14 +124,12 @@ def merge_marker_data(marker_data, resource_id, current_path, m_tracker_marker):
         sys.exit(COLLISION_NOT_CONFIRMED)
     add_path = True
     if 'path_history' in marker_data[resource_id]:
-        for entry in marker_data[resource_id]['path_history']:
-            try:
-                resource_path = entry.split(',')[2]
-                if resource_path == current_path:
-                    add_path = False
-                    break
-            except IndexError:
-                pass
+        try:
+            resource_path = marker_data[resource_id]['path_history'][-1].split(',')[2]
+            if resource_path == current_path:
+                add_path = False
+        except IndexError:
+            pass
 
     marker_data[resource_id] = m_tracker_marker
     if add_path:
